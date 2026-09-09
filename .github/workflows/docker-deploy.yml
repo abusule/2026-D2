@@ -22,7 +22,7 @@ jobs:
 
         - name: Push Image to DockerHub
           run: docker push abusule/techmax-c2:latest
-#TASK
+#TASK2
     # Build2ECR:
     #   runs-on: aws-runner
     #   steps:
