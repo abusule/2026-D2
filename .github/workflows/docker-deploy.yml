@@ -7,7 +7,7 @@ on:
 
 jobs:
     Build2DH:
-      runs-on: ubuntu-latest
+      runs-on: aws-runner
       steps:
         - uses: actions/checkout@v7
 
