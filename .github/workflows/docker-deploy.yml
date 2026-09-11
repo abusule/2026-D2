@@ -44,11 +44,11 @@ jobs:
 
         - name: Push Image to ECR
           run: |
-             docker tag techmax-c2:latest ${{steps.login-ecr.outputs.registry}}/ghdocker_repo:${{github.sha}}
-             docker push ${{steps.login-ecr.outputs.registry}}/ghdocker_repo:${{github.sha}}
+             docker tag techmax-c2:latest ${{steps.login-ecr.outputs.registry}}/fazreed_web:${{github.sha}}
+             docker push ${{steps.login-ecr.outputs.registry}}/fazreed_web:${{github.sha}}
           #docker tag ghdocker_repo:latest 679952641182.dkr.ecr.us-east-1.amazonaws.com/ghdocker_repo:latest
       # outputs:
-      #       image: ${{steps.login-ecr.outputs.registry}}/ghdocker_repo:${{github.sha}}
+      #       image: ${{steps.login-ecr.outputs.registry}}/fazreed_web:${{github.sha}}
       #       registry: ${{steps.login-ecr.outputs.registry}}
 
     # Deploy:
