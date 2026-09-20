@@ -1,0 +1,25 @@
+stages:
+  - build
+  - deploy
+
+build-image:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script: 
+   - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USER" --password-stdin
+  script: | 
+     docker build . --file Dockerfile --tag kniru/techmax-c2-gitlab:latest --push
+  rules:
+    - when: manual
+
+deploy-2-ec2:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add openssh-client --no-cache
+    - echo $EC2_PRIVATE_KEY_B4 | base64 -d > /tmp/ec2-private_key
+    - chmod 600 /tmp/ec2-private_key
+  script: | 
+     ssh -i $SSH_PRIVATE_KEY ubuntu@35.182.42.172 "df -h"
