@@ -13,6 +13,7 @@ build-image:
      docker build . --file Dockerfile --tag kniru/techmax-c2-gitlab:latest --push
   rules:
     - when: manual
+    #
 
 deploy-2-ec2:
   stage: deploy
