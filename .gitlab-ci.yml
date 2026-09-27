@@ -10,7 +10,7 @@ build-image:
   before_script: 
    - echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USER" --password-stdin
   script: | 
-     docker build . --file Dockerfile --tag kniru/techmax-c2-gitlab:latest --push
+     docker build . --file Dockerfile --tag abusule/techmax-c2-gitlab:latest --push
   rules:
     - when: manual
     #
